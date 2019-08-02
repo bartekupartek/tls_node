@@ -1,4 +1,4 @@
-defmodule TLSNode_client do
+defmodule TLSNode.Client do
   @moduledoc """
   A module containing the function that determines the port number
   based on a node name.

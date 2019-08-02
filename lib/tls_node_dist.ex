@@ -15,21 +15,21 @@ defmodule TLSNode_dist do
     :ok = Application.put_env(:kernel, :inet_dist_listen_min, port)
     :ok = Application.put_env(:kernel, :inet_dist_listen_max, port)
 
-    :inet6_tls_dist.listen(name)
+    :inet_tls_dist.listen(name)
   end
 
   @doc """
   Select this protocol based on node name
   """
   def select(node) do
-    :inet6_tls_dist.select(node)
+    :inet_tls_dist.select(node)
   end
 
   @doc """
   Accepts new connection attempts from other Erlang nodes.
   """
   def accept(listen) do
-    :inet6_tls_dist.accept(listen)
+    :inet_tls_dist.accept(listen)
   end
 
   @doc """
@@ -37,7 +37,7 @@ defmodule TLSNode_dist do
   Performs the handshake with the other side.
   """
   def accept_connection(accept_pid, socket, my_node, allowed, setup_time) do
-    :inet6_tls_dist.accept_connection(accept_pid, socket, my_node, allowed, setup_time)
+    :inet_tls_dist.accept_connection(accept_pid, socket, my_node, allowed, setup_time)
   end
 
   @doc """
@@ -45,20 +45,20 @@ defmodule TLSNode_dist do
   Performs the handshake with the other side.
   """
   def setup(node, type, my_node, long_or_short_names, setup_time) do
-    :inet6_tls_dist.setup(node, type, my_node, long_or_short_names, setup_time)
+    :inet_tls_dist.setup(node, type, my_node, long_or_short_names, setup_time)
   end
 
   @doc """
   Close a socket.
   """
   def close(listen) do
-    :inet6_tls_dist.close(listen)
+    :inet_tls_dist.close(listen)
   end
 
   @doc """
   Childspecs.
   """
   def childspecs() do
-    :inet6_tls_dist.childspecs()
+    :inet_tls_dist.childspecs()
   end
 end
